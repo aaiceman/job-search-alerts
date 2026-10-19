@@ -1,0 +1,10 @@
+[project]
+name = "jobsearch"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["live: hits real network endpoints (run with -m live)"]
+addopts = "-m 'not live'"

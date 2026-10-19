@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "defaultMode": "dontAsk",
+    "allow": [
+      "Read(./**)",
+      "Edit(./ranked.json)",
+      "WebSearch",
+      "WebFetch(domain:glassdoor.com)",
+      "WebFetch(domain:www.glassdoor.com)",
+      "WebFetch(domain:indeed.com)",
+      "WebFetch(domain:www.indeed.com)",
+      "WebFetch(domain:levels.fyi)",
+      "WebFetch(domain:www.levels.fyi)",
+      "WebFetch(domain:comparably.com)",
+      "WebFetch(domain:www.comparably.com)",
+      "WebFetch(domain:builtin.com)",
+      "WebFetch(domain:www.builtin.com)",
+      "WebFetch(domain:teamblind.com)",
+      "WebFetch(domain:www.teamblind.com)",
+      "WebFetch(domain:layoffs.fyi)",
+      "WebFetch(domain:linkedin.com)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:crunchbase.com)",
+      "WebFetch(domain:www.crunchbase.com)"
+    ],
+    "deny": [
+      "Bash",
+      "PowerShell",
+      "NotebookEdit",
+      "Task",
+      "Agent",
+      "Read(//c/JobSearch/data/.env)",
+      "Read(//c/JobSearch/data/*.db*)",
+      "Read(//c/JobSearch/data/profile/**)",
+      "Read(//c/JobSearch/data/config/**)",
+      "Read(//c/JobSearch/data/logs/**)",
+      "Read(//c/JobSearch/app/**)",
+      "Read(//c/Windows/**)",
+      "Read(~/**)"
+    ]
+  }
+}

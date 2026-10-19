@@ -1,0 +1,13 @@
+# FORMAT EXAMPLE ONLY (generic, no real data). The real list is the private
+# <data folder>\config\watch.yaml (default C:\JobSearch\data\config\watch.yaml) and is never committed.
+# The daily run checks each posting and shows a "Your applications" block at the top of the digest
+# (still open / POSTING CLOSED on <date> / status unknown), so you can see when postings come down.
+applications:
+  - company: Example Corp            # shown in the digest
+    title: Principal Security Architect
+    url: https://job-boards.greenhouse.io/examplecorp/jobs/1234567890   # link in the digest (http/https only)
+    ats: greenhouse                  # greenhouse | lever | ashby
+    board: examplecorp               # the ATS board slug (the URL segment after the host / "boards/")
+    job_id: "1234567890"             # greenhouse: numeric id; lever: posting UUID; ashby: job id (UUID)
+    posted: 2026-01-05               # optional: date the posting went up (YYYY-MM-DD)
+    applied: 2026-01-12              # optional: date you applied

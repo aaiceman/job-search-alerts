@@ -1,0 +1,49 @@
+# Source queries. Titles are re-filtered locally by filters.yaml, so these can be broad.
+window_hours:
+  default: 24     # Tue–Fri
+  monday: 72      # covers the weekend
+
+jobspy:
+  sites: [linkedin, indeed]   # zip_recruiter 403 + google 0 rows as of 2026-09-29
+  results_per_term: 15
+  # 2026-10-15: LinkedIn searches no longer fetch every job page. Pages are fetched afterwards only for
+  # LinkedIn jobs whose title passes filters.yaml and that were never emailed, at most this many per run
+  # (paced 3-7 s apart). Jobs beyond the cap, or whose page fails, are kept without a description.
+  max_detail_fetches: 40
+  # When a site's circuit breaker opens (2 failed searches in a row, e.g. HTTP 429), pause this long and
+  # retry ONE term: success closes the breaker, failure skips that site's remaining terms. Never waits
+  # past the collection deadline.
+  breaker_cooldown_s: 90
+  # 2026-10-14: LinkedIn began throttling; each term costs ~15 LinkedIn description fetches. Dropped
+  # "microsoft sentinel" (Sentinel roles are titled security/detection engineer, already searched) and
+  # "cloud security architect" (a subset of the "security architect" results); dedupe merged the overlap
+  # anyway, so this only removes duplicate requests.
+  terms:
+    - security engineer
+    - detection engineer
+    - security architect
+    - identity architect entra
+    - azure architect
+    - m365 architect
+    - systems architect
+    - business systems integration
+    - ai platform engineer
+    - director of it
+    - it manager
+    - security manager
+    - director of information security
+
+remotive_categories: [devops, software-dev]
+himalayas_queries:
+  - security engineer
+  - security architect
+  - cloud architect
+  - systems architect
+  - integration engineer
+  - ai engineer
+jobicy_tags: [security, cloud, architect, integration]
+remoteok_tags: [security, sysadmin, devops]
+wwr_feeds:
+  - remote-devops-sysadmin-jobs
+  - remote-back-end-programming-jobs
+  - all-other-remote-jobs

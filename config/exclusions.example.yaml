@@ -1,0 +1,21 @@
+# Format example only. Copy to <data folder>\config\exclusions.yaml (default C:\JobSearch\data\config\exclusions.yaml)
+# (private, never committed). Matching is case-insensitive on normalized names;
+# aliases catch alternate / former names.
+
+current_employer:
+  - name: Example Corp
+    aliases: [ExampleCo, Example Brand]
+
+pe_owner_portfolio:
+  - name: Example Capital
+  - name: Portfolio Company A
+
+staffing_agencies:
+  - name: Example Staffing
+  # Also caught heuristically: "our client", "on behalf of our client", "confidential company".
+
+# Optional: extra regexes for the company-NAME staffing heuristic (case-insensitive, matched against the
+# normalized name; merged with the built-in defaults in jobsearch/exclusions.py STAFFING_NAME_PATTERNS).
+# An invalid regex makes the exclusions file fail to load. Names containing "holdings" are exempt.
+staffing_name_patterns:
+  - '\bconsulting bench\b'

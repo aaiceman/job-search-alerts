@@ -1,0 +1,6 @@
+# Copy to <data folder>\config\owner.yaml (private, never committed).
+# Pay target = max(salary_floor in filters.yaml, current_base_salary x (1 + min_raise_pct / 100)).
+# The base salary is used only to compute the target and the "+X% vs current base" text in the digest;
+# it is never printed and never given to the ranker.
+current_base_salary: 120000
+min_raise_pct: 25

@@ -1,0 +1,39 @@
+# Example profile: IT security / cloud / systems architecture and IT leadership. Edit every list for your own search.
+salary_floor: 150000          # set your own: drop if the range midpoint (or a lone max) is below this
+home_state_abbr: TX           # your state, for "remote in these states only" rules
+max_candidates: 100           # cap on jobs sent to the ranker per day
+
+# Title must match at least one include pattern and no exclude pattern (case-insensitive regex).
+title_include:
+  - 'secur'
+  - 'detection|threat|incident response|\bsoc\b'
+  - 'sentinel|defender|\bxdr\b|\bsiem\b'
+  - 'identity|\biam\b|entra'
+  - 'architect'
+  - 'm365|microsoft 365|office 365|\bo365\b'
+  - 'azure'
+  - 'cloud (engineer|infrastructure|platform)'
+  - 'systems engineer|infrastructure engineer'
+  - 'integration|ipaas|celigo|workato|boomi|netsuite|salesforce|business systems'
+  - '\bai\b|artificial intelligence|genai|\bllm\b|\bmcp\b'
+  - 'information technology|\bit\b|infrastructure|technology operations'   # IT leadership (Director of IT, IT Manager, VP Technology…)
+  - 'cloud (services|operations)'
+  - 'business technology'
+  - 'endpoint'
+  - 'site reliability|\bsre\b'
+  - '\bpki\b|cryptograph'
+title_exclude:
+  - '\b(junior|jr\.?|entry[- ]level|intern(ship)?|apprentice|associate|trainee)\b'
+  - 'help ?desk|service desk|desktop support|\btier ?(1|2|i|ii)\b|\blevel ?(1|2|i|ii)\b'
+  - '\b(sales|account executive|account manager|recruiter|marketing|customer success|attorney|counsel|paralegal)\b'
+  - '\b(physical security|security (officer|guard)|loss prevention|armed|unarmed)\b'
+  - 'ts/sci|top secret|clearance'
+  - '\b(support (engineer|technician|specialist)|landscape|building architect|designer|writer|scientist|instructor|trainer|nurse|real estate|construction|payroll|procurement|claims|coordinator|handler|talent|recruit\w*|social security)\b'   # non-IT roles
+  - '\b(structural|mechanical|civil|electrical|hvac|missile|weapons|mechatronics)\b'   # non-IT engineering
+
+ranker:
+  model: sonnet
+  timeout_minutes: 45
+  claude_exe: '%APPDATA%\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe'
+  description_chars: 6000     # per-job description budget for the ranker (boilerplate dropped first, see rank.trim_description)
+  jobs_per_file: 10           # candidates-NN.json chunk size (keeps each file readable)
